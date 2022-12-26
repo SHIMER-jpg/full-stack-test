@@ -10,9 +10,9 @@ async function getParsedData (req, res) {
     }
 
     const csvPayload = await filesService.getAll()
-    res.json(csvPayload)
+    return res.json(csvPayload)
   } catch (error) {
-    res.json({
+    return res.json({
       message:
         error.message || 'There was an error fetching the requested files',
       status: 500
@@ -22,9 +22,9 @@ async function getParsedData (req, res) {
 
 async function getRawList (_, res) {
   try {
-    res.json(await filesService.getList())
+    return res.json(await filesService.getList())
   } catch (error) {
-    res.json({
+    return res.json({
       message: error.message || 'There was an error fetching the raw files',
       status: 500
     })
