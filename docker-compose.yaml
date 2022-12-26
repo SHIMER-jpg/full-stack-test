@@ -1,0 +1,26 @@
+version: "3.6"
+services:
+  csv-client:
+    build:
+      context: cli/
+      dockerfile: Dockerfile
+    ports:
+      - "9500:9500"
+    environment:
+      CSV_API: http://csv_api:4000
+    networks:
+      - local
+  csv-api:
+    build:
+      context: api/
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    environment:
+      external_api_url: https://echo-serv.tbxnet.com/v1
+      external_api_secret: Bearer aSuperSecretKey
+    networks:
+      - local
+networks:
+  local:
+    driver: bridge
