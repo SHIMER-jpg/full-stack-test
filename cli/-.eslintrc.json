@@ -1,0 +1,25 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true,
+    "mocha": true,
+    "commonjs": true,
+    "jest": true
+  },
+  "parser": "@babel/eslint-parser",
+  "rules": {
+    "no-console": "warn",
+    "no-use-before-define": "warn",
+    "spaced-comment": "warn",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
+  },
+  "extends": [
+    "standard",
+    "plugin:react/recommended"
+  ]
+}
