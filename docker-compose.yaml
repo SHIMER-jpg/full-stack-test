@@ -7,7 +7,7 @@ services:
     environment:
       CSV_API_URL: http://csv-api:4000
     ports:
-      - "9500:9500"
+      - "3000:3000"
     networks:
       - local
   csv-api:
