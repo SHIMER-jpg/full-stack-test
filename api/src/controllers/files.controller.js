@@ -5,7 +5,7 @@ async function getParsedData(req, res) {
     const { fileName } = req.query;
     if (fileName) {
       const file = await filesService.getSingleFile(fileName);
-      if (!file) throw new Error();
+      if (!file) throw new Error("File could not be converted to CSV");
       return res.json(file);
     }
 
@@ -13,9 +13,9 @@ async function getParsedData(req, res) {
     res.json(csvPayload);
   } catch (error) {
     res.json({
-      message: "There was an error fetching the requested files",
+      message:
+        error.message || "There was an error fetching the requested files",
       status: 500,
-      detail: error.message,
     });
   }
 }
@@ -25,9 +25,8 @@ async function getRawList(_, res) {
     res.json(await filesService.getList());
   } catch (error) {
     res.json({
-      message: "There was an error fetching the raw files",
+      message: error.message || "There was an error fetching the raw files",
       status: 500,
-      detail: error.message,
     });
   }
 }
