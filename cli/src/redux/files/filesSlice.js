@@ -16,7 +16,6 @@ export const fetchFiles = createAsyncThunk(
         headers,
       }).then((res) => res.json());
     } catch (e) {
-      console.log("🚀 ~ file: filesSlice.js:19 ~ e", e);
       dispatch(setError("There was an error fetching the files"));
     }
   }
@@ -26,11 +25,16 @@ export const searchFiles = createAsyncThunk(
   "searchFiles",
   async (fileName, { dispatch }) => {
     try {
-      return await fetch("/files/data?fileName=" + fileName, {
+      const data = await fetch("/files/data?fileName=" + fileName, {
         headers,
       }).then((res) => res.json());
+
+      if (data.message) throw new Error(data.message);
+      return data;
     } catch (e) {
-      dispatch(setError("There was an error fetching the requested file"));
+      dispatch(
+        setError("There was an error fetching the requested file: " + e.message)
+      );
     }
   }
 );
