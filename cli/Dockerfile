@@ -1,5 +1,4 @@
 FROM node:16.18-alpine3.15
-WORKDIR ./
-RUN npm install 
 COPY . .
+RUN npm install 
 ENTRYPOINT ["npm","start"]
