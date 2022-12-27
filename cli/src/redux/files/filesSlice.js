@@ -4,15 +4,16 @@ import { setError } from "./errorSlice";
 const initialState = {
   list: [],
 };
-const headers = {
-  "Content-Type": "application/json",
-};
+
+const headers = {};
+
+const URL = "http://localhost:4000";
 
 export const fetchFiles = createAsyncThunk(
   "fetchFiles",
   async (_, { dispatch }) => {
     try {
-      return await fetch("/files/data", {
+      return await fetch(URL + "/files/data", {
         headers,
       }).then((res) => res.json());
     } catch (e) {
@@ -25,7 +26,7 @@ export const searchFiles = createAsyncThunk(
   "searchFiles",
   async (fileName, { dispatch }) => {
     try {
-      const data = await fetch("/files/data?fileName=" + fileName, {
+      const data = await fetch(URL + "/files/data?fileName=" + fileName, {
         headers,
       }).then((res) => res.json());
 

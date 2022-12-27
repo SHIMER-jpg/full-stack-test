@@ -1,9 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import {
-  Container,
-  Table
-} from "react-bootstrap";
+import Table from "react-bootstrap/Table";
+import Container from "react-bootstrap/Container";
 
 
 const TableHeader = () => {
@@ -53,7 +51,7 @@ const TableBody = ({ fileList }) => {
 }
 
 
-export function FilesTable() {
+export const FilesTable = () => {
   const files = useSelector((state) => state.files);
   return (
     <Container>

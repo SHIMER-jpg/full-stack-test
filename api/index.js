@@ -9,7 +9,7 @@ app.get('/', (_, res) => {
   res.json({ message: 'ok' })
 })
 
-app.use('/files', filesRouter, corsConfig)
+app.use('/files', corsConfig, filesRouter)
 
 app.listen(port, () => {
   console.log('App listening on port ' + port)

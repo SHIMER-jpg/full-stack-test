@@ -15,6 +15,7 @@ export function SearchBar() {
   const error = useSelector((state) => state.error);
   const files = useSelector((state) => state.files);
   const isLoading = files.list.length === 0
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
