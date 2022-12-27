@@ -2,6 +2,8 @@
 
 This project can be run with the docker compose file in the main root (or docker run individually), also if one wishes to start each service separately via Node both services recognize the `npm start` command
 
+To start both clients run `docker compose up` in the main directory
+
 ## Api
 To run the client run `npm start` and it will be open on http://localhost:4000
 
