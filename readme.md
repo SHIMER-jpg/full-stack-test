@@ -16,4 +16,6 @@ In order to run tests the command `npm test` can be used, following elements are
 
 In order to run tests the command `npm test` can be used, following elements are tested
 
--
+- Nav render with mutation on Error
+- Search bar render with input changes and submit on click
+- Files Table render with dynamic rendering of lines according to file
